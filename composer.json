@@ -1,0 +1,21 @@
+{
+    "name": "novia713/setara",
+    "description": "A trivial way for hiding text from simple view.",
+    "type": "project",
+    "require": {
+        "raveren/kint": "^1.0"
+    },
+    "license": "GPL-2",
+    "authors": [
+        {
+            "name": "leandro",
+            "email": "leandro@leandro.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Novia713\\Setara\\": "src/"
+        }
+    }
+}
