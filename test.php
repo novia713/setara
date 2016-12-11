@@ -4,9 +4,9 @@ require __DIR__ . "/vendor/autoload.php";
 use Novia713\Setara\Setara;
 
 
-$setara = new Setara("Bulbasaur", "emojis");
+$setara = new Setara("Ekans", "emojis");
 
-$enc = $setara->enc("La guitarra tocada por gitanos, que luego regresaroñ al campo");
+$enc = $setara->enc("La guitarra fue tocada por gitanos, que luego regresaro al campo");
 d($enc);
 
 $setara->dec(
@@ -23,6 +23,14 @@ d( $setara->dec(
 
 
 $enc = $setara->enc("Goran Bregovic compone música para muchos artistas!! ·%&");
+d($enc);
+
+d( $setara->dec(
+  $enc
+  ));
+
+
+  $enc = $setara->enc("casa CASA");
 d($enc);
 
 d( $setara->dec(

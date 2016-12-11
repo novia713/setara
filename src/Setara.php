@@ -77,6 +77,7 @@ class Setara
             if ($n = (int) array_search($letter, array_column($this->get_ar_emojis(), 'char'))) {
               $tmp[] = chr($n - $this->n);
             }
+            //d("$letter - $n - ". chr($n - $this->n));
           }
         }else{
           foreach (explode(".", $text) as $letter) {
