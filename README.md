@@ -19,10 +19,13 @@ $setara = new Setara("Lapras");
 ## Hide
 
 ```php
-$enc = $setara->enc($my_text);
+$setara->enc($my_string);
 ```
 
 ## Reveal
 ```php
-$setara->dec($my_text);
+$setara->dec($my_string);
 ```
+## Explanation
+This simply uses `chr()` and `ord()` to convert letters to numbers, using a Pokemon name as seed for displacement.
+I would use this *only* for standard and common ascii letters.
