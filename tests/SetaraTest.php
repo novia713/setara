@@ -8,33 +8,50 @@ class SetaraTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->setara = new Setara("Ekans", "emojis");
+        $this->setara = new Setara("Mew");
     }
 
-    public function testEnc()
-    {
-        $this->assertEquals(
-          $this->setara->enc("La guitarra fue tocada por gitanos, que luego regresaro al campo"),
-          "🙏👶😧👴💃👲🚶👶👰👰👶😧👱💃👩😧🚶🎅👧👶👨👶😧👼🎅👰😧👴👲🚶👶🕵🎅🏃😴😧👸💃👩😧👷💃👩👴🎅😧👰👩👴👰👩🏃👶👰🎅😧👶👷😧👧👶💂👼🎅"
-        );
-    }
-
-
-    public function testDec()
-    {
-        $this->assertEquals(
-          $this->setara->dec(
-            "🙏👶😧👴💃👲🚶👶👰👰👶😧👱💃👩😧🚶🎅👧👶👨👶😧👼🎅👰😧👴👲🚶👶🕵🎅🏃😴😧👸💃👩😧👷💃👩👴🎅😧👰👩👴👰👩🏃👶👰🎅😧👶👷😧👧👶💂👼🎅"
-          ),
-          "La guitarra fue tocada por gitanos, que luego regresaro al campo"
-        );
-    }
 
     public function testVocals()
     {
-        $this->assertNotEquals(
-          $this->setara->enc("ÁÉÍÓÚáéíóúÄäà"),
-          $this->setara->enc($this->setara->dec($this->setara->enc("ÁÉÍÓÚáéíóúÄäà")))
+        $text = "ÁÉÍÓÚáéíóúÄäàØæñçàèìòù";
+        $this->assertEquals(
+          $this->setara->enc($text),
+          $this->setara->enc(
+            $this->setara->dec(
+              $this->setara->enc($text)
+            )
+          )
         );
+    }
+
+    public function testAPhrase()
+    {
+        $text = "'Matrimoniadas' fué una serie muy divertida, como 'Escenas de matrimoñio'";
+        $this->assertEquals(
+          $this->setara->enc($text),
+          $this->setara->enc(
+            $this->setara->dec(
+              $this->setara->enc($text)
+            )
+          )
+        );
+
+    }
+
+
+    public function testAPhrase2()
+    {
+        $text = "Hallo";
+        $this->assertEquals(
+          $this->setara->enc($text),
+          $this->setara->enc(
+            $this->setara->dec(
+              $this->setara->enc($text)
+            )
+          )
+        );
+
+        echo $this->setara->enc($text);
     }
 }
