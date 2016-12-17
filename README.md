@@ -28,4 +28,12 @@ $setara->dec($my_string);
 ```
 ## Explanation
 This simply uses `chr()` and `ord()` to convert letters to numbers, using a Pokemon name as seed for displacement.
+
 I would use this *only* for standard and common ascii letters.
+
+## Examples
+For example, "Hallo" string using "Bulbasaur" as Pokemon seed reads as `73 98 109 109 112`
+
+"Hallo" string using "Mew" as Pokemon seed reads as `223 248 259 259 262`
+
+This way you can't read the string on simple viw. That's it!
